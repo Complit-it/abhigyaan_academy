@@ -1,0 +1,169 @@
+.header-transparent .main-bar {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+.main-bar {
+    background: transparent;
+}
+.header-white-transparent {
+    background-color: transparent;
+}
+.cargo-banner .title {
+    text-align: center;
+}
+.cargo-banner .dlab-bnr-inr-entry {
+    vertical-align: middle;
+}
+.header-transparent .is-fixed .main-bar {
+    height: auto;
+}
+.section-full.ourservices {
+    padding-top: 0px;
+}
+.service-box.style5.upword {
+    background-color: #fff;
+    margin-top: -100px;
+    padding: 10px;
+    border-radius: 6px;
+}
+.cargo-banner {
+    height: 120vh;
+    text-align: left;
+}
+.dlab-bnr-inr-entry {
+    text-align: center;
+}
+.dlab-bnr-inr-entry a {
+    margin-top: 40px;
+    font-size: 15px;
+}
+.icon-content.ser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.icon-content.ser p {
+    text-align: center;
+    margin-top: 10px;
+}
+.navstyle1 .header-nav .nav > li.active2 > a {
+    background: #14141475;
+    border-radius: 4px;
+}
+.header-nav .nav > li > a:after {
+    background: #14141475;
+    border-radius: 4px;
+}
+.navstyle1 .header-nav .nav > li > a,
+.navstyle2 .header-nav .nav > li > a {
+    font-weight: 400;
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.cargo-banner .title {
+    font-size: 45px;
+    margin-bottom: 0px;
+}
+
+h1.roadpartner {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #fafafa;
+    color: transparent;
+    letter-spacing: 10px;
+    font-size: 60px;
+    margin-bottom: 25px;
+    line-height: 50px;
+}
+
+.page-content {
+    padding-bottom: 0px;
+}
+.rdcopy a {
+    color: inherit;
+}
+.footer-bottom {
+    padding: 15px 0px;
+}
+footer li,
+footer p {
+    font-size: 14px;
+}
+.site-button .fa {
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+}
+.footer-top {
+    position: relative;
+}
+.exhibition-carousel:after {
+    background-color: #00c6ff;
+}
+.section-head p {
+    padding-top: 10px;
+    font-size: 16px;
+    color: #494949;
+    text-align: justify;
+}
+.rdcomponent {
+    position: relative;
+}
+.rdcomponent .txthead {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-92%, -20%);
+    line-height: 20px;
+    z-index: 1;
+}
+.rdcomponent img {
+    width: 450px;
+    margin-top: 30px;
+    transition: 5s linear;
+}
+.rdcomponent img:hover {
+    transform: rotate(360deg);
+}
+
+/*menu hide*/
+#navbarNavDropdown {
+    display: none !important;
+}
+.extra-nav {
+    display: none;
+}
+.bt-buy-now.theme-btn {
+    display: none;
+}
+
+.cargo-banner .dlab-bnr-inr-entry a.site-button {
+    width: 200px;
+    font-size: 17px;
+}
+
+#callat {
+    font-size: 16px;
+}
+.site-button {
+    font-size: 16px;
+}
+.rdcopy,
+.widget_getintuch li {
+    text-transform: capitalize;
+}
+
+@media only screen and (max-width: 768px) {
+    .service-box.style5.upword {
+        margin-top: 30px;
+    }
+}
+
+li strong {
+    font-weight: 500;
+    color: black;
+}
