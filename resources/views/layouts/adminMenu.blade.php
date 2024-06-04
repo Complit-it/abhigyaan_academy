@@ -52,7 +52,45 @@
 
                 </li>
 
-                <li class="nav-item @if (request()->is('topics') || request()->is('subjects') || request()->is('edit-sub-topic/*') || request()->is('sub-sub-topics') || request()->is('edit-sub-sub-topic/*') || request()->is('edit-subject/*') || request()->is('edit-topic/*') || request()->is('sub-topics')) menu-open @endif">
+
+                <li class="nav-item @if (request()->is('batch')|| request()->is('edit-batch/*')|| request()->is('view-batch-students/*') || request()->is('topics') || request()->is('app-banner') || request()->is('edit-app-banner') || request()->is('subjects') || request()->is('edit-sub-topic/*') || request()->is('sub-sub-topics') || request()->is('edit-sub-sub-topic/*') || request()->is('edit-subject/*') || request()->is('edit-topic/*') || request()->is('sub-topics')) menu-open @endif">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-user"></i>
+                        <p>
+                            Students
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item ">
+                            <a href="/view-students" class="nav-link  @if (request()->is('view-students') || request()->is('edit-student/*') ) active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+
+                                <p>
+                                    View Students
+                                </p>
+                            </a>
+
+                        </li>
+                        
+                        <li class="nav-item ">
+                            <a href="/batch" class="nav-link  @if (request()->is('view-batch-students/*') || request()->is('batch') || request()->is('edit-batch/*')) active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+
+                                <p>
+                                    Batches
+                                </p>
+                            </a>
+
+                        </li>
+                        
+
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item @if (request()->is('topics') || request()->is('app-banner') || request()->is('edit-app-banner') || request()->is('subjects') || request()->is('edit-sub-topic/*') || request()->is('sub-sub-topics') || request()->is('edit-sub-sub-topic/*') || request()->is('edit-subject/*') || request()->is('edit-topic/*') || request()->is('sub-topics')) menu-open @endif">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-shopping-basket"></i>
                         <p>
@@ -103,11 +141,101 @@
 
                         </li>
 
+                        <li class="nav-item ">
+                            <a href="/app-banner" class="nav-link  @if (request()->is('app-banner') || request()->is('edit-app-banner')) active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+
+                                <p>
+                                    Web Data
+                                </p>
+                            </a>
+
+                        </li>
+
 
 
                     </ul>
                 </li>
 
+                <li class="nav-item @if (request()->is('mcqs') || request()->is('videos') || request()->is('edit-mcq-batch/*') ||request()->is('gallery') || request()->is('edit-gallery/*') || request()->is('pdf')) menu-open @endif">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-shopping-cart"></i>
+                        <p>
+                            Resources
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item ">
+                            <a href="/mcqs" class="nav-link  @if (request()->is('mcqs') || request()->is('edit-mcq-batch/*')) active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+
+                                <p>
+                                    MCQs
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/videos" class="nav-link  @if (request()->is('videos') || request()->is('edit-topic/*')|| request()->is('addProductPost')) active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+
+                                <p>
+                                    Videos
+                                </p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="/pdf" class="nav-link  @if (request()->is('pdf') || request()->is('edit-topic/*')|| request()->is('addProductPost')) active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+
+                                <p>
+                                    PDF's
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/gallery" class="nav-link  @if (request()->is('gallery') || request()->is('edit-gallery/*')|| request()->is('addProductPost')) active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+
+                                <p>
+                                    Gallery
+                                </p>
+                            </a>
+
+                        </li>
+                        
+
+
+                    </ul>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="/packages" class="nav-link {{ request()->is('packages') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-bullhorn"></i>
+                        <p>
+                            Packages
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item ">
+                            <a href="/packages" class="nav-link  @if (request()->is('packages') || request()->is('edit-gallery/*')|| request()->is('addProductPost')) active @endif">
+                                <i class="nav-icon far fa-circle"></i>
+
+                                <p>
+                                    Package Details
+                                </p>
+                            </a>
+                        </li>
+
+                     
+                    </ul>
+                </li>
 
                 <li class="nav-item">
                     <a href="add-notification" class="nav-link {{ request()->is('add-notification') ? 'active' : '' }}">
@@ -116,9 +244,9 @@
                             Send Notification
                         </p>
                     </a>
-
                 </li>
 
+                
 
 
                 <!-- <li class="nav-item @if (request()->is('addProduct') || request()->is('editProduct') || request()->is('addProductPost') || request()->is('editProductPost')) menu-open @endif">
@@ -338,21 +466,21 @@
                 </li> --}}
 
 
-                <li class="nav-item @if (request()->is('app-banner') ) menu-open @endif">
+                <li class="nav-item @if (request()->is('add-blogs') ) menu-open @endif">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
-                            App Data
+                           Blogs
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item ">
-                            <a href="/app-banner" class="nav-link  @if (request()->is('app-banner')) active @endif">
+                            <a href="/add-blogs" class="nav-link  @if (request()->is('add-blogs')) active @endif">
                                 <i class="nav-icon far fa-circle"></i>
 
                                 <p>
-                                    Bannners
+                                    Add Blogs
                                 </p>
                             </a>
 
@@ -382,6 +510,17 @@
 
 
 
+
+
+                <li class="nav-item">
+                    <a href="contact-form-submission" class="nav-link {{ request()->is('contact-form-submission') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-thin fa-address-book"></i>
+                    <p>
+                            Contact Form
+                        </p>
+                    </a>
+
+                </li>
 
 
                 <li class="nav-item">

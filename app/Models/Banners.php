@@ -9,6 +9,12 @@ class Banners extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'category',
+        'title',
+        'description',
+        'from',
+        'email',
+        'phone',
         'imageUrl',
         'scheduledfrom',
         'scheduledto',

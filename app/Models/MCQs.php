@@ -10,6 +10,7 @@ class MCQs extends Model
     use HasFactory;
 
     protected $fillable = [
+        'batch_id',
         'title',
         'subject_id',
         'topic_id',

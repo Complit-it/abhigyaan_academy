@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AppApiController;
 use App\Http\Controllers\CustomerApiController;
 use App\Http\Controllers\MasterDataAPI;
 use App\Http\Controllers\VendorAPIController;
@@ -17,10 +18,32 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+Route::get('contents/{subsubtopicId}/{subtopicId}/{topicId}/{subjectId}/{packageId}', [AppApiController::class, 'getContents']);
+Route::post('add_students_to_batch', [ApiController::class, 'add_students_to_batch']);
+Route::post('login', [AppApiController::class, 'login']);
+Route::get('appBanners', [AppApiController::class, 'appBanners']);
+
+Route::group(['middleware' => ['auth:api', 'role:customer']], function () {
+Route::get('enrolledcourses', [AppApiController::class, 'enrolledCourses']);
+Route::get('getSubjects/{packageId}', [AppApiController::class, 'getSubjects']);
+Route::get('topics/{subjectId}/{packageId}', [AppApiController::class, 'topic']);
+Route::get('subtopics/{topicId}/{subjectId}/{packageId}', [AppApiController::class, 'subtopic']);
+Route::get('subsubtopics/{subtopicId}/{topicId}/{subjectId}/{packageId}', [AppApiController::class, 'subsubtopic']);
+
+Route::get('mcqquestions/{batchId}', [AppApiController::class, 'mcqquestions']);
+Route::post('savMCQDetails', [AppApiController::class, 'savMCQDetails']);
+
+});
 // Route::post('checkOtp', [ApiController::class, 'checkOtp']);
 
 Route::post('get-topic', [MasterDataAPI::class, 'getTopicFromSubject']);
 Route::post('get-sub-topic', [MasterDataAPI::class, 'getSubTopicFromTopic']);
+Route::post('get-sub-sub-topic', [MasterDataAPI::class, 'getSubSubTopicFromSubTopic']);
+
+Route::post('check-slug', [MasterDataAPI::class, 'checkSlug'])->name('check-slug');
+
+// get-data
+Route::post('get-data', [MasterDataAPI::class, 'getData']);
 
 Route::get('deletemyaccount/{phone}', [ApiController::class, 'getServices']);
 Route::get('jobLists', [ApiController::class, 'getServices']);
@@ -59,8 +82,8 @@ Route::get('get-otp', [CustomerApiController::class, 'getnotsupported']);
 Route::post('check-customer-otp', [CustomerApiController::class, 'checkOtp']);
 Route::get('check-customer-otp', [CustomerApiController::class, 'getnotsupported']);
 
-Route::post('login', [CustomerApiController::class, 'login']);
-Route::get('login', [CustomerApiController::class, 'getnotsupported']);
+// Route::post('login', [CustomerApiController::class, 'login']);
+// Route::get('login', [CustomerApiController::class, 'getnotsupported']);
 
 Route::post('loginwithOTP', [CustomerApiController::class, 'loginwithOTP']);
 Route::get('loginwithOTP', [CustomerApiController::class, 'getnotsupported']);
@@ -72,6 +95,7 @@ Route::post('reset-password', [CustomerApiController::class, 'resetPassword']);
 Route::get('reset-password', [CustomerApiController::class, 'getnotsupported']);
 Route::get('get-models-by-brand', [CustomerApiController::class, 'getnotsupported']);
 Route::post('get-questions-by-brand', [ApiController::class, 'getQuestionsByBrand']);
+Route::post('add_students_to_batch', [ApiController::class, 'add_students_to_batch']);
 // get-vehicle-model
 Route::post('get-vehicle-model', [ApiController::class, 'getVehicleModel']);
 

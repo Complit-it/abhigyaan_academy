@@ -72,7 +72,7 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Add Banner</h3>
+                            <h3 class="card-title">Web Data</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -92,10 +92,47 @@
                         <div class="card-body">
                             <div class="row">
 
-
-
-
                                 <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="productName">Select Category</label>
+                                        <select class="form-control select2" id="category" name="category" 
+                                            style="width: 100%;" onchange="getFields(this);">
+                                            <option value="-1" selected>----Select Category---</option>
+                                            <option value="1"  @if($singleOffer != null) @if( $singleOffer->category == '1')  selected @endif @endif>Home Banners</option>
+                                            <option value="2"   @if($singleOffer != null) @if( $singleOffer->category == '2')  selected @endif @endif >Popular Exams</option>
+                                            <option value="3"   @if($singleOffer != null) @if( $singleOffer->category == '3')  selected @endif @endif>Student Testimonials</option>
+                                            <option value="4"   @if($singleOffer != null) @if( $singleOffer->category == '4')  selected @endif @endif >App Banners</option>                                           
+                                            <option value="5"   @if($singleOffer != null) @if( $singleOffer->category == '5')  selected @endif @endif >Blog Category</option>                                           
+                                            <option value="6"   @if($singleOffer != null) @if( $singleOffer->category == '6')  selected @endif @endif >About US</option>                                           
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-4" id="titleDiv">
+                                    <div class="form-group">
+                                        <label for="titleDivLabel" id="titleDivLabel">Title <span style="color:red">*</span></label>
+                                        <input type="text" placeholder="Title" name="title" id="title" class="form-control col-md-12"
+                                            @if ($singleOffer != null) value="{{ $singleOffer->title }}" @endIf />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4" id="descriptionDiv">
+                                    <div class="form-group">
+                                        <label for="productName">Description <span style="color:red">*</span></label>
+                                        <input type="text"  placeholder="Description" name="description" id="description" class="form-control col-md-12"
+                                            @if ($singleOffer != null) value="{{ $singleOffer->description }}" @endIf />
+                                    </div>
+                                </div>
+
+                                
+
+
+
+
+                                <div class="col-md-4" id="scheduledfromDiv">
                                     <div class="form-group">
                                         <label for="productName">From <span style="color:red">*</span></label>
                                         <input type="datetime-local" name="scheduledfrom" id="scheduledfrom"
@@ -105,7 +142,7 @@
                                 </div>
 
 
-                                <div class="col-md-4">
+                                <div class="col-md-4" id="scheduledToDiv">
                                     <div class="form-group">
                                         <label for="productCategory">Till<span style="color:red">*</span></label>
                                         <input type="datetime-local" name="scheduledto" id="scheduledto"
@@ -114,30 +151,43 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="subCategory">Status <span style="color:red">*</span></label>
-                                        <select class="form-control select2" id="status" name="status"
-                                            style="width: 100%;" onchange="getSubCategory(this);">
-                                            <option value="-1" selected>----Select Status---</option>
-                                            <option value="1">Active</option>
-                                            <option value="2">Deactive</option>
-
-                                        </select>
-                                    </div>
-                                </div>
+                               
 
 
 
                                 <div class="col-md-4" id="imageTo">
                                     <div class="form-group">
-                                        <label for="customFile">Promotion Image (720 x 240)</label>
+                                        <label for="customFile" id="customfileLabel">Promotion Image (720 x 240)</label>
 
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="image" id="customFile"
-                                                @if ($singleOffer == null) required @endIf>
+                                                >
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" id="descriptionDivforAboutUS">
+                                    <div class="form-group">
+                                        <label for="productName">Description <span style="color:red">*</span></label>
+                                            <textarea id="compose-textarea" name="descriptionforAboutUS" class="form-control" style="height: 300px">
+                                                @if ($singleOffer != null) {{ $singleOffer->description }}@endIf
+                                            </textarea>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="subCategory">Status <span style="color:red">*</span></label>
+                                        <select class="form-control select2" id="status" name="status"
+                                            style="width: 100%;" >
+                                            <option value="-1" >----Select Status---</option>
+                                            <option value="1" selected>Active</option>
+                                            <option value="2">Deactive</option>
+
+                                        </select>
                                     </div>
                                 </div>
 
@@ -147,7 +197,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Add Banner</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                             </form>
                         </div>
@@ -167,6 +217,9 @@
                                     <table id="table21" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Category</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
                                                 <th>Scheduled From</th>
                                                 <th>Scheduled To</th>
                                                 <th>Status</th>
@@ -179,8 +232,57 @@
                                         <tbody>
                                             @foreach ($allBanners as $data)
                                                 <tr>
-                                                    <td>{{ $data['scheduledfrom'] }}</td>
-                                                    <td>{{ $data['scheduledto'] }}</td>
+                                                    <td>
+                                                        @if ($data['category'] == 1)
+                                                            Home Banners
+                                                        @endif
+                                                        @if ($data['category'] == 2)
+                                                            Popular Exams
+                                                        @endif
+                                                        @if ($data['category'] == 3)
+                                                            Student Testimonials
+                                                        @endif
+                                                        @if ($data['category'] == 4)
+                                                            App Banners
+                                                        @endif
+                                                        @if ($data['category'] == 5)
+                                                            Blog Category
+                                                        @endif 
+                                                        @if ($data['category'] == 6)
+                                                            About Us
+                                                        @endif
+                                                        
+                                                    
+                                                    </td>
+                                                    <td>
+                                                        @if($data['title'] == null)
+                                                            No Title
+
+                                                        @else
+                                                            {{ $data['title'] }}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if($data['description'] == null)
+                                                            No Description
+                                                        @else
+                                                            {{ $data['description'] }}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if($data['scheduledfrom'] == null)
+                                                            No Scheduled From
+                                                        @else
+                                                            {{ $data['scheduledfrom'] }}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if($data['scheduledto'] == null)
+                                                            No Scheduled To
+                                                        @else
+                                                            {{ $data['scheduledto'] }}
+                                                        @endif
+                                                    </td>
                                                     @if ($data['status'] == '1')
                                                         <td>Active</td>
                                                     @endif
@@ -226,6 +328,9 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
+                                                <th>Category</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
                                                 <th>Scheduled From</th>
                                                 <th>Scheduled To</th>
                                                 <th>Status</th>
@@ -287,6 +392,14 @@
                 theme: 'bootstrap4'
             })
         });
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     var selectElement = document.getElementById('category');
+        //     if (selectElement) {
+        //         var event = new Event('change');
+        //         selectElement.dispatchEvent(event);
+        //     }
+        // });
     </script>
 
     <script>
@@ -314,4 +427,118 @@
             $('#status').val({{ $singleOffer->status }});
         </script>
     @endif
+
+
+    <script>
+
+        $(document).ready(function() {
+            $('#scheduledfromDiv').hide();
+            $('#scheduledToDiv').hide();
+            $('#descriptionDiv').hide();
+            // $('#descriptionDivforAboutUS').hide();
+
+        });
+
+        function getFields(category) {
+            var category = category.value;
+            console.log(category);
+            // Category 1 is for Home Banners
+            if (category == 1) {
+                $('#scheduledfromDiv').hide();
+                $('#scheduledToDiv').hide();
+                $('#descriptionDiv').hide();
+                $('#imageTo').show();
+                $('#customfileLabel').text('Image (1920px X 1280px)');
+                $('#descriptionDivforAboutUS').hide();
+                $('#titleDiv').show();
+                $('#titleDivLabel').text('Title');
+                $('#titleDivLabel input').attr('placeholder', 'Title');
+
+            } 
+            // Category 2 is for Popular Exams
+            else if( category == 2) {
+                $('#scheduledfromDiv').hide();
+                $('#scheduledToDiv').hide();
+                $('#descriptionDiv').hide();
+                $('#imageTo').show();
+                $('#titleDiv').show();
+
+                $('#customfileLabel').text('Image (60px X 60px)');
+                $('#descriptionDivforAboutUS').hide();
+                $('#titleDivLabel').text('Title');
+                $('#titleDivLabel input').attr('placeholder', 'Title');
+
+            } 
+            // Category 3 is for Student Testimonials
+            else if( category == 3) {
+                $('#scheduledfromDiv').hide();
+                $('#scheduledToDiv').hide();
+                $('#descriptionDiv').show();
+                $('#imageTo').show();
+                $('#titleDiv').show();
+
+                $('#customfileLabel').text('Image (100px X 100px)');
+                $('#titleDivLabel').text('Title');
+                $('#titleDivLabel input').attr('placeholder', 'Title');
+            } 
+            // Category 4 is for App Banners
+            else if( category == 4) {
+                $('#scheduledfromDiv').show();
+                $('#scheduledToDiv').show();
+                $('#imageTo').show();
+                $('#customfileLabel').text('Image (1920px X 1280px)');
+                $('#descriptionDivforAboutUS').hide();
+                $('#titleDiv').show();
+
+            }
+            // Category 5 is for Blog Category
+            else if( category == 5) {
+                $('#scheduledfromDiv').hide();
+                $('#scheduledToDiv').hide();
+                $('#descriptionDiv').hide();
+                $('#imageTo').hide();
+                $('#descriptionDivforAboutUS').hide();
+                $('#titleDiv').show();
+
+                $('#titleDivLabel').text('Title');
+                $('#titleDivLabel input').attr('placeholder', 'Title');
+
+
+            }
+
+                // Category 6 is for About Us
+            else if( category == 6) {
+                $('#scheduledfromDiv').hide();
+                $('#scheduledToDiv').hide();
+                $('#descriptionDiv').hide();
+                $('#imageTo').show();
+                $('#customfileLabel').text('Image (960px X 640px)');
+                $('#descriptionDivforAboutUS').show();
+                $('#titleDiv').show();
+                $('#titleDivLabel').text('Video URL');
+                $('#titleDivLabel input').attr('placeholder', 'Video URL');
+                
+
+
+                
+            }
+
+            else {
+                $('#scheduledfromDiv').hide();
+                $('#scheduledToDiv').hide();
+                $('#descriptionDiv').hide();
+                $('#imageTo').hide();
+                $('#descriptionDivforAboutUS').show();
+                $('#titleDiv').show();
+                $('#titleDivLabel').text('Title');
+                $('#titleDivLabel input').attr('placeholder', 'Title');
+
+            }
+
+            // var event = new Event('change');
+            // var selectElement = document.getElementById('category');
+            // selectElement.dispatchEvent(event);
+        }
+        
+    </script>
 @endsection

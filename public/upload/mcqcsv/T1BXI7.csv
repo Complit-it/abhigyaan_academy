@@ -1,0 +1,115 @@
+question_text,question_image,correct_answer,option_1_text,option_2_text,option_3_text,option_4_text,option_1_image,option_2_image,option_3_image,option_4_image,answer_explanation_text,answer_explanation_image
+"If the work done by p men in (p + 2) days is to the work done by (p + 4) men in (p – 1) days is in the ratio 1 : 1, then the value of p is:",NA,B,2,4,6,5,NA,NA,NA,NA,"Work done will be directly proportional to number of men and days.<br/>So according to the question,<br/>[(p)(p + 2)] / [(p + 4)(p - 1)] = 1/1<br/>p2 + 2p = p2 + 4p - p - 4<br/>p = 4",NA
+"The monthly incomes of X and Y are in the ratio of 4:3 and their monthly expenses are in the ratio of 3:2. However, each saves Rs. 6,000 per month. What is their total monthly income?",NA,B,"Rs. 28,000","Rs. 42,000","Rs. 56,000","Rs. 84,000",NA,NA,NA,NA,Given :<br/>The ratio of the income of X and Y is 4 : 3.<br/>The ratio of monthly expenses of X and Y is 3 : 2. <br/>X and Y save 6000 rupees each month.<br/>Concept used: <br/>Savings = Income - expense<br/>Calculations:<br/>Let the ratio of monthly income of X and Y be 4a and 3a respectively. <br/>Let the ratio of monthly expenses of X and Y be 3b and 2b respectively. <br/>Savings of X = 4a - 3b <br/>4a - 3b = 6000      ....(1) <br/>Savings of Y = 3a - 2b <br/>3a - 2b = 6000      ....(2) <br/><br/>Solving equation 1 and 2 <br/>We get a = 6000 and b = 6000 <br/>Total monthly income of X and Y = 4a + 3a = 7a <br/> => 7 × 6000 <br/> => 42000 rupees<br/> => Option 2 is the correct answer.,NA
+"The incomes of Sheldon, Leonard, and Howard are in the ratio of 4 : 5 : 6 respectively and their spending are in the ratio of 6 : 7 : 8 respectively. If Sheldon saves one fourth his income, then the savings of Sheldon, Leonard, and Howard are in the ratio:",NA,A,2:3:4,5:6:9,5:9:6,9:5:6,NA,NA,NA,NA,"Let the incomes be 4x, 5x, 6x and the spending be 6y, 7y, 8y and savings are (4x–6y), (5x–7y) & (6x–8y) <br/>Sheldon saves 1/4th of his income.<br/>Therefore: <br/> 4x – 6y = 4x / 4 <br/> 4x – 6y = x <br/> 3x = 6y <br/> x / y = 2 <br/> y = x / 2<br/><br/>Ratio of Sheldon’s Leonard’s & Howard’s savings: <br/> = 4x – 6y : 5x – 7y : 6x – 8y<br/> = x : 5x – 7y : 6x – 8y <br/> = x : 5x – 7x / 2 : 6x – 8x / 2 <br/>= x : 3x / 2 : 2x <br/> = 2 : 3 : 4",NA
+"A sum of Rs. 12,384 is divided between A, B, C and D such that the ratio of the shares of A and B is 3 : 4, that of B and C is 5 : 6, and that of C and D is 8 : 9. What is the share of C ?",NA,C,"Rs. 2,880","Rs. 3,888","Rs. 3,456","Rs. 2,160",NA,NA,NA,NA,"Given:<br/>A : B = 3 : 4 <br/>B : C = 5 : 6 <br/>C : D = 8 : 9 <br/>Sum to divided among them = Rs. 12,384 <br/>Concept used: <br/>Ratio Proportion <br/>Calculation:<br/>A : B = 3 : 4 = 15 : 20 <br/>B : C = 5 : 6 = 20 : 24 <br/>C : D = 8 : 9 = 24 : 27 <br/>A : B : C : D = 15 : 20 : 24 : 27 <br/>Share of C = 24/(15 + 20 + 24 + 27) × 12384 = Rs. 3456 <br/>The share of C is Rs. 3456.",NA
+"A bag has Rs.785 in the denomination of Rs.2, Rs.5 and Rs.10 coins. The coins are in the ratio of 6 : 9 : 10. How many coins of ? 5 are in the bag?",NA,C,60,12,45,24,NA,NA,NA,NA,"Given: <br/>Rs.785 in the denomination of Rs.2, Rs.5 and Rs.10 coins <br/>The coins are in the ratio of 6 : 9 : 10 <br/>Calculation: <br/>Let the number of coins of Rs.2, Rs.5 and Rs.10 be 6x, 9x, and 10x respectively <br/> => (2 × 6x) + (5 × 9x) + (10 × 10x) = 785 <br/>=> 157x = 785 <br/> x = 5 <br/> Number of coins of Rs.5 = 9x = 9 × 5 = 45 <br/> Therefore, 45 coins of Rs. 5 are in the bag.",NA
+"An alloy of gold and silver is taken in the ratio of 1 : 2, and another alloy of the same metals is taken in the ratio of 2 : 3. How many parts of the two alloys must be taken to obtain a new alloy consisting of gold and silver that are in the ratio 3 : 5?",NA,B,2 and 9,3 and 5,2 and 5,1 and 5,NA,NA,NA,NA,"Let x and y be mass of two alloys mixed. <br/>In first alloy: <br/>Gold = x × 1 / (1 + 2) = x/3 <br/>Silver = x × 2 / (1 + 2) = 2x/3 <br/>In second alloy: <br/>Gold = y × 2 / (2 + 3) = 2y/5 <br/>Silver = y × 3 / (2 + 3) = 3y/5 <br/>In resulting alloy: <br/>Gold / Silver = 3 / 5 <br/>(x/3+2y/5) / (2x/3+3y/5) = 3 / 5 <br/>(x/3+2y/5) × 5 = (2x/3+3y/5) × 3 <br/>5x/3 + 2y = 2x + 9y/5 <br/>5x/3 - 2x = 9y/5 - 2y <br/>-x/3 = -y/5 <br/>x / y = 3 / 5 <br/><br/>Therefore, two alloys should be taken in ratio of 3 : 5",NA
+"In a company, 20% of the employees work in the manufacturing department. If the total salary obtained by all the manufacturing employees is one-sixth of the total salary obtained by all the employees in the company, then the ratio of the average salary obtained by the manufacturing employees to the average salary obtained by the nonmanufacturing employees is",NA,D,6:5,5:4,5:6,4:5,NA,NA,NA,NA,"Let the number of total employees in the company be 100x, and the total salary of all the employees be 100y. <br/>It is given that 20% of the employees work in the manufacturing department, and the total salary obtained by all the manufacturing employees is one-sixth of the total salary obtained by all the employees in the company. <br/>Hence, the total number of employees in the manufacturing department is 20x, and the total salary received by them is (100y/6) <br/>Average salary in the manufacturing department = (100y/6*20x) = 5y/6x <br/>Similarly, the total number of employees in the nonmanufacturing department is 80x, and the total salary received by them is (500y/6) <br/>Hence, the average salary in the nonmanufacturing department = (500y/6*80x) = 25y/24x <br/>Hence, the ratio is:- (5y/6x): (25y/24x) <br/>=> 120: 150 = 4:5 <br/>The correct option is D",NA
+"In a garrison of 3600 men, the provisions were sufficient for 20 days at the rate of 1.5 kg per man per day. If x more men joined, the provisions would be sufficient for 12 days at the rate of 2 kg per man per day. Find x.",NA,C,600,800,900,720,NA,NA,NA,NA,"Let x be the number of new men joined the garrison, <br/>The total quantity of food is = 3600(20) (1.5) kg ----------1 <br/>Now the available food will be consumed by (3600 + x) men <br/>(3600 + x) (12) (2) kg  --------------2 <br/>1 = 2 <br/>Solving both the equations <br/>3600(20) (1.5) = (3600 + x) (12) (2) <br/>108000 = 86400 + 24x <br/>21600 = 24x <br/>X = 900 <br/>900 more men joined the garrison.",NA
+The difference between the two positive numbers is 10 and the ratio between them is 5:3. Find the product of the two numbers.,NA,A,375,325,275,125,NA,NA,NA,NA,"Let the nos. be 5x and 3x. <br/>Then, 5x - 3x = 10 <br/> 2x = 10, x = 5 <br/>Required product = 5x * 3x <br/> 5 * 5 * 3 * 5 = 375",NA
+Four numbers in the ratio of 1:3:4:7 add up to give a sum of 75. Find the value of the biggest number.,NA,B,42,35,49,63,NA,NA,NA,NA,"Let the number be x, 3x, 4x and 7x. Then, x + 3x + 4x + 7x = 75 <br/>15x = 75 , x = 5 <br/>Required value = 7 * 5 = 35",NA
+"A and B invested Rs 12,000 and Rs 18,000 respectively in a business for the whole year. At the year-end, there was a total profit of Rs 2,000. What is the share of A in the profit?",NA,A,Rs 800,"Rs 1,200","Rs 1,600",None of these,NA,NA,NA,NA,Ratio of their investment = 12000 : 18000 = 2: 3 A’s share in profit = (2/5) x 2000 = Rs 800,NA
+"The sum of the ages of the 4 members of Sinha family is 140 years. 5 years ago the ages of the 4 members Nishu, Vicky, Mrs Sinha and Mr Sinha were in the ratio of 2 : 3 : 7 : 8 . After how many years would Nishu be as old as the present age of his mother?",NA,C,10yrs,17yrs,30 yrs,32 yrs,NA,NA,NA,NA,"Let their ages 5 years ago be 2x, 3x, 7x and 8x. Their ages now 2x + 5, 3x + 5, 7x + 5, 8x + 5. <br/>Or, 20x + 20 = 140 <br/> => 2Ox = 120 => x = 6 <br/>Present age o f Nishu = 2 x 6 + 5 = 17 years <br/>Present age of mother = 7 x 6 + 5 = 47 years <br/>Hence, required years (47 -17) years = 30 years",NA
+In a fort there are 1600 soldiers fighting a battle against their enemy. On a particular day after their morning meal the balance provision inside the fort is only sufficient for 12 days at the rate of 1.2 kg per day. If by the evening 400 soldiers die then for how many days will the provision be sufficient for remaining men at the rate of 1.6 kg per day. (Assume soldiers eat either in morning or in evening).,NA,D,10,8,18,12,NA,NA,NA,NA,Total quantity of food at the beginning of the day <br/>= (1600) (12) (1.2) <br/>Total number of soldiers left at the end of the day 1200 <br/>Now we have to calculate that for how long is available provision enough for the left-out soldiers <br/>(1200) (x) (1.6) <br/>(1600) (12) (1.2) = (1200) (x) (1.6) <br/>Solving it for the value of x <br/>We get x = 12 <br/>The provision is sufficient for 1200 soldiers for 12 days.,NA
+"The value of a diamond varies directly as the square of its weight. If a diamond worth Rs 10,000 is divided into 2 pieces in the ratio of 4:6, what is the loss in value?",NA,B,52%,48%,36%,None of these,NA,NA,NA,NA,"V ? W², V = KW² <br/>Where, V = Value of diamond, W = weight of diamond and K = constant <br/>? 10000 = K.(10)² <br/>? K = 100 <br/>Hence, V = 100 x 4² = 1600 <br/>also, V = 100 x 6² = 3600 <br/>Net loss = Rs.(10000 - 5200) = Rs 4800 i.e., 48%",NA
+"The first, second and third class fares between two railway stations, Patna and Lucknow were 10:8:3 and the number of first, second and third class passengers between the two stations was is 3:4:10. If total sales of the ticket is Rs 16,100, find the money obtained by the sales of second class tickets.",NA,B,"Rs 5,250","Rs 5,600","Rs 6,400","Rs 6,650",NA,NA,NA,NA,"Let the fare of 1st, 2nd and 3rd class be 10x, 8x, and 3x respectively. <br/>Let the no. of passengers of 1st, 2nd and 3rd class be 3y, 4y and 10y respectively. <br/>Then 30xy + 32xy + 30xy = 16100<br/> 92xy=16100 <br/>Hence xy = 175 <br/>Required amount = 32xy = 32 x 175 = 5600 ",NA
+"Two horses cost as much as 5 dogs, 6 dogs as much as 8 oxen, 10 oxen as much as 50 sheep, 14 sheep as much as 9 goats. If the price of one goat is Rs 70, how much will one horse cost?",NA,D,Rs 670,Rs 730,Rs 830,Rs 750,NA,NA,NA,NA,Price of one goat = Rs 70 <br/> Price of 9 goats = 9 x 70 = Rs 630 <br/> Price of 14 sheeps = Rs 630 <br/> Price of 1 sheep = Rs 630/14 = Rs 45 <br/> Price of 50 sheep = Rs 45 x 50 = Rs 2250 <br/> Price of 10 oxen = 2250 <br/> Price of 1 oxen = 225 <br/> Price of 8 oxen  = 1800 <br/> Price of 6 dogs = 1800 <br/> Price of 1 dog = 300 <br/> Price of 5 dog = 1500 <br/> Price of two horses = 1500 <br/> Price of one horse = 750,NA
+"A is proportional to B. B is inversely proportional to C. C is proportional to the square of D. D is directly proportional to the cube root of E. Assuming positive integers, if A increases then E",NA,B,Increases,Decreases,Cannot say,Could increase or decrease,NA,NA,NA,NA,"Given, <br/>A ? B<br/>B ? (1/C)<br/>C ? D²<br/>D ? ?E<br/>When A increases ? B also increases ? C decreases <br/>Decrease in C results in decrease in D and decrease in D results decrease in E.",NA
+The sum of four numbers is 253. The ratio of the first number to the second number is 2:3. The ratio of the second number to the third number is 5:6. The ratio of the third number to the fourth number is 8:9. What is the average of the second number and the third number?,NA,D,72,132,60,66,NA,NA,NA,NA,"Let the 1st no. = A = x <br/>2nd no.= B , 3rd no.= C , 4th no. = D <br/>A:B = 2:3 <br/>   A/B = 2/3 <br/>    x/B = 2/3 <br/>   B = 3x/2 <br/><br/> B:C = 5:6 <br/>    (3x/2)/C = 5/6 <br/>    C = (6*3x)/2*5 = 9x/5 <br/>    C = 9x/5 <br/><br/> C:D = 8:9 <br/>    9x/5/D = 8/9 <br/>   D = (9x*9)/8*5 = 81x/40 <br/>  D = 81x/40 <br/><br/> A + B + C + D = 253. (Given) <br/> x + 3x/2 + 9x/5 + 81x/40 = 253 <br/> (40x+ 60x+ 72x+81x)/40 = 253 <br/> 253x = 253*40 <br/>X = (253*40)/253 = 40 <br/> 1st no.(A) = X = 40 <br/> 2nd no.(B) = 3x/2 =( 3 × 40)/2 = 60 <br/> 3rd no.(C) = 9x/5 = (9×40)/5 = 72 <br/> 4th no.(D) = 81x/40 =( 81×40/)/40 = 81 <br/><br/>Average of numbers = sum of observations/ total no.of observations <br/> Average of 2nd no. & 3rd no.= (60+72)/2 = 132/2 = 66",NA
+"A man has rs.480 in the denominations of one-rupee notes, five-rupee notes and ten-rupee notes. The number of notes of each denomination is equal. What is the total number of notes that he has ?",NA,D,100,50,78,90,NA,NA,NA,NA,"Given that a man has Rs. 480 in the denominations of one-rupee notes, five-rupee notes and ten-rupee notes. The number of notes of each denomination is equal. <br/> => We are to find the total number of notes he has. <br/> => Let x represents the number of notes of each of the three denominations. <br/> => Then, according to the given information, we have <br/> => 1.x + 5.x + 10.x = 480 <br/> => x + 5x + 10x = 480 <br/> => 16x = 480 <br/> => x = 30 <br/> => Therefore, the total number of notes is given by <br/> => x + x + x = 3x = 3*30 = 90",NA
+"Three friends A, B and C started a venture with capitals in the ratio of 4:1:15. At the end of every quarter A halves his capital, while B doubles his capital and C leaves his capital untouched. This process is repeated till the end of the year. If at the end of the year B ’ s share of the profit is Rs 22,000, what is the total profit?",NA,D,"Rs 88,000","Rs 1,10,000","Rs 2,25,000","Rs 1,21,000",NA,NA,NA,NA,"Let A, B, C invested Rs 4x, Rs x, Rs 15x respectively. <br/> => According to question, Ratio of their investments for 1 year <br/>= (4x*3 + 2x*3 + x*3 + x/2*3) : (x*3 + 2x*3 + 4x*3 + 8x*3) : (15x*12) <br/> => 45x/2 : 45x : 180x <br/> => 45 : 90 : 360 <br/> => 1 : 2 : 8 <br/>Total profit = (11/2)*22000 = Rs 121000",NA
+"Read the passage below and solve the questions based on it. <br/>A book having pages between 4,000 and 5,000 is divided into four parts, each part being divided into chapters. The total number of pages in each of the four parts is the same. The ratio of the chapters across all the parts is 6:5:10:14. The number of chapters in the fourth part is 70 <br/><br/>Q.What is the total number of pages in the book?",NA,C,"4,000","4,800","4,200","4,600",NA,NA,NA,NA,"According to question, A:B:C:D = 6:5:10:14 <br/> Now in D there are 70 chapters <br/>Therefore, A:B:C:D = 30:25:50:70      [ Multiplying Each by 5 ] <br/>L.C.M of 30, 25, 50, 70 is 1050 <br/> So each part should have 1050 pages. <br/>So total pages = 4 x 1050 = 4200 ans.",NA
+"Read the passage below and solve the questions based on it. <br/>There are certain number of apples, guavas and oranges in a basket. The number of each variety is more than one. The ratio of the number of apples to the number of guavas is equal to the ratio of the number of guavas to the number of oranges.<br/><br/>Q. If the total number of fruits is 61, then find the number of guavas.",NA,20,16,20,25,Cannot be determined,NA,NA,NA,NA,"? Number of apples/Number of guavas = Number of guavas/Number of oranges
+? (Number of guavas)2 = Number of apples x Number of oranges.
+? This gives us a hint that Number of apples x Number of oranges should be a prefect square.
+Now start using the options.
+Option (b) satisfies the relationship (16/20 = 20/25)",NA
+"A man has 25 paise, 50 paise and 1 Rupee coins. There are 220 coins in all and the total amount is 160. If there are thrice as many 1 Rupee coins as there are 25 paise coins, then what is the number of 50 paise coins?",NA,60,60,80,100,120,NA,NA,NA,NA,"Given:
+
+Total coin = 220
+
+Total money = Rs. 160
+
+There are thrice as many 1 Rupee coins as there are 25 paise coins.
+
+Concept used:
+
+Ratio method is used.
+
+Calculation:
+
+Let the 25 paise coins be 'x'
+
+So, one rupees coins = 3x
+
+50 paise coins = 220 – x – (3x) = 220 – (4x)
+
+According to the questions,
+
+3x + [(220 – 4x)/2] + x/4 =160
+
+? (12x + 440 – 8x + x)/4 = 160
+
+?  5x + 440 = 640
+
+? 5x = 200
+
+? x = 40
+
+So, 50 paise coins = 220 – (4x) = 220 – (4 × 40) = 60
+
+? The number of 50 paise coin is 60.",NA
+"In an election, each voter may vote for two candidates. Half of the voters vote for A, but divide their votes between B, C and D in the ratio of 3 : 2 : 1. Of the remaining, half vote for B and divides their votes between C and D in the ratio of 2 : 1. Of the remaining, half vote for C and D and the remaining 840 do not vote for anyone. How many votes were received by A, B, C and D respectively?",NA,"3,360 3,360 3,080 1,960","3,360 3,360 3,080 1,960","3,360 3,360 1,960 3,080","3,450 3,210 4,120 1,210","5,000 5,000 2,500 1,250",NA,NA,NA,NA,Best way of solving this question is - Go through the options.,NA
+"In a forest reserve, the ratio of the number of deers, bear and fox is 3 : 7 : 5. If the difference between the number of deers and bears is a multiple of 3 as well as 7, what is the minimum number of animals in the park?",NA,315,315,310,45,Cannot be determined,NA,NA,NA,NA,"? No. of deers, bears and foxes = 3x : 7x : 5x
+? Difference between the no. of deers and bears = 4x Now, 4x has to be a multiple of 21. So, x has to be a multiple of 21.
+? So, Total number of animals = 15x = 15 * 21 = 315",NA
+"The inhabitants of Hawaii Island are taxed in a peculiar manner. They have to pay a fixed sum irrespective of their income strata. In addition to this they have to pay an amount which is proportional to the excess of their salary over Rs 50,000. Mr Kalyan pays a total tax of Rs 6,200 when his annual salary is Rs 6,0000 and his wife Mrs. Kalyan pays a total tax of Rs 7,700 when her annual salary is Rs 75,000. What is the yearly salary of Mr Ajay who pays an annual tax of Rs 8,200?",NA,"Rs 80,000","Rs 80,000","Rs 82,000","Rs 90,000",None of these,NA,NA,NA,NA,"Tax = Fixed + Variable
+
+? Since Mr Kalyan pays Rs 6200 and Mrs Kalyan pays Rs 7700, so it can be inferred that for Rs 10,000 (Difference between their salaries), one has to pay Rs 1500 as the variable tax.
+? So, Fixed component of tax = Rs 5200. The point worth to be noted here is the fact that tax is to be paid over an above Rs 50,000.
+? So, the variable tax percentage above Rs 50,000 = 10%. Now the answer can be calculated using options.",NA
+"The total profit made by running a train between New Delhi to Lucknow consists of two parts: (i) a constant amount of Rs 24 lakh per trip and (ii) it varies as the square of the number of coaches attached to the engine that amounts to Rs 7P2, where P is the number of coaches attached to the engine in the trip. If the average profit per coach per trip should not fall below Rs 169 lakh, then what is the minimum number of coaches that have to be attached to the engine?",NA,24,23,24,25,None of these,NA,NA,NA,NA,"Total profit = Rs 24 lakh per trip + Rs 7P2, where P is the number of coaches.
+Now go through the options.",NA
+"The average weight of the fifty students in a class is 40 kg. If 5 students of average weight 42 kg and 15 students of average weight 45 kg are added into the same class, find the new average weight of the class.",NA,41.21,42.5,41.21,36 kg,Data insufficient,NA,NA,NA,NA,"Given:
+
+The average weight of the 50 students = 40 kg.
+
+5 students of average weight 42 kg and 15 students of average weight 45 kg are added.
+
+Formula used:
+
+Average weight = Total weight/Total number of people
+
+Calculation:
+
+Total weight of 50 students = 50 × 40 = 2000 kg
+
+Total weight of 5 students = 5 × 42 = 210 kg
+
+Total weight of 15 students = 15 × 45 = 675 kg
+
+Total weight of 70 students = 2000 + 210 + 675 = 2885 kg
+
+The average weight of 70 students = 2885/70 = 41.21 kg
+
+? new average weight of the class is 41.21 kg.",NA
+"Read the passage below and solve the questions based on it.<br/>On 13th of November, I kept some money in a magical purse in which on even every alternate day starting from the 13th, money increases with respect to the closing amount on the evening of the previous day, that the ratio of money becomes 2 : 1 but on every alternate day starting from the 14th, the money decreases by Rs 10. when compared to the closing amount on the evening of the previous day I had Rs 500 on the 19th and the magical purse kept on multiplying money for me till the 25th of that November.<br/>Q. How much money was there on the 22nd of November?",NA,None of these,440,360,240,None of these,NA,NA,NA,NA,It is Rs 970 on 22nd.,NA
+"Price of each article of type P, Q, and R is Rs. 300, Rs. 180 and Rs. 120 respectively. Suresh buys articles of each type in the ratio 3:2:3 in Rs. 6480. How many articles of type Q did he purchase?",NA,8,14,20,8,None of these,NA,NA,NA,NA,"? Let the common factor be k.
+? Hence, the number of articles of type P, Q and R will be 3k, 2k and 3k respectively
+? Also, Unit price of article x Number of articles = Total amount for the articles
+? 300 x 3k + 180 x 2k + 120 x 3k = 6480
+? k = 4
+? Number of articles of Type Q = 2k = 8",NA
+"Read the passage below and solve the questions based on it.<br/>In a class, every student plays exactly one of the following games—squash, table tennis, hockey, handball, cricket. Exactly 1/ 12th of the girls and 1/8th of the boys play- squash. 1/15th of the girls and 1/6th of the boys play hockey, 1/4th of the girls and 1/12th of the boys play handball. 1/5th of the girls and 3/8th of the boys plays table tennis and the remaining boys and girls play cricket. The total strength of the class is less than 120 <br/>
+Q. How many girls are there in the class?",NA,Cannot be determined,60,48,90,Cannot be determined,NA,NA,NA,NA,"? Whatever is the total number of boys, it should be divisibie by 8, 6, 12 
+? For total number of girls should be divisible by 12, 15 and 4, Now use options.",NA
+The expenses of a hostel are partly fixed and partly variable with the number of boarders. When there are 50 boarders the charge is Rs. 48 per head and when there are 30 boarders the charge is Rs. 60 per head. Find the charges when there are 120 boarders?,NA,,40,32,42,37.5,NA,NA,NA,NA,"? Let, F = Fixed Cost, K = variable cost, B= No of boarders, E= Total Expenditure
+? Then, E= F + KB
+    ? 2400 = F + K50
+    ? 1800 = F + K30
+    ? K= 30, F = 900
+? When there are 120 boarders the charge will be
+? E = 900 + 30(120)
+? E= 4500
+Charge per boarder = 4500/120 = 37.5",NA

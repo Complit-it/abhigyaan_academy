@@ -18,7 +18,6 @@ use App\Models\worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
 use Validator;
 
 class AdminController extends Controller
@@ -171,8 +170,6 @@ class AdminController extends Controller
 
         }
     }
-
-   
 
     // Get Service Sub Category
     public function sscategory()
@@ -329,12 +326,8 @@ class AdminController extends Controller
     }
 
     //Add vehicle-model
-   
 
     //Edit VBrand Model
-   
-
-  
 
     // delete existing file
     public function deleteExistingFile($imagePath)
@@ -345,7 +338,6 @@ class AdminController extends Controller
     }
 
     //Edit VModel Model
-    
 
     public function sendnotification()
     {
@@ -611,7 +603,7 @@ class AdminController extends Controller
 
     public function appBanner()
     {
-        $allBanners = Banners::select()->get();
+        $allBanners = Banners::where('category', '!=', 'contact')->get();
         return view('adminPages.banner', [
             'title' => 'AdminPortal | Add Vehicle Model',
             'allBanners' => $allBanners,
@@ -626,34 +618,62 @@ class AdminController extends Controller
 
     public function appBannerPost(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'scheduledfrom' => 'required|min:5',
-            'scheduledto' => 'required|min:1',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
+        if ($request->category == 5) {
+            $validator = Validator::make($request->all(), [
+                'category' => 'required|min:1',
+                'title' => 'required|min:1',
+            ]);
+        } else {
+            $validator = Validator::make($request->all(), [
+                'category' => 'required|min:1',
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
 
-        ]);
+            ]);
+        }
         if ($validator->fails()) {
             return back()->with('message', 'Please fill all the fields');
         }
+        if ($request->category != 5) {
+            $newImage = "images/banners/" . time() . "." . $request->image->extension();
+            $path = $request->image->move(public_path('images/banners'), $newImage);
+        } else {
+            $newImage = "";
+        }
 
-        $newImage = "images/banners/" . time() . "." . $request->image->extension();
-        $path = $request->image->move(public_path('images/banners'), $newImage);
+        $banner = new Banners();
+        $banner->imageUrl = $newImage;
+        $banner->category = $request->category;
+        $banner->status = $request->status;
+        if ($request->category == 1) {
+            $banner->title = $request->title;
+        } else if ($request->category == 2) {
+            $banner->title = $request->title;
+        } else if ($request->category == 3) {
+            $banner->title = $request->title;
+            $banner->description = $request->description;
+        } else if ($request->category == 4) {
+            $banner->title = $request->title;
+            $banner->description = $request->description;
+            $banner->scheduledfrom = $request->scheduledfrom;
+            $banner->scheduledto = $request->scheduledto;
+        } else if ($request->category == 5) {
+            $banner->title = $request->title;
+        } else if ($request->category == 6) {
+            $banner->title = $request->title;
+            $banner->description = $request->descriptionforAboutUS;
+        }
 
-        $addNewOffer = Banners::create([
-            'imageUrl' => urlencode($newImage),
-            'scheduledto' => $request->scheduledto,
-            'scheduledfrom' => $request->scheduledfrom,
-            'status' => $request->status,
-        ]);
+        $banner->save();
 
-        return back()->with('message', 'Bannner added successfully');
+        return back()->with('message', 'Data added successfully');
 
     }
 
     public function editAppBanner(Request $request)
     {
         $id = $request->id;
-        $allBanners = Banners::select()->get();
+        $allBanners = Banners::where('category', '!=', 'contact')->get();
+
         $singleOffer = Banners::where('id', $id)->first();
 
         return view('adminPages.banner', [
@@ -672,8 +692,6 @@ class AdminController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'scheduledfrom' => 'required|min:5',
-            'scheduledto' => 'required|min:1',
             'id' => 'required',
         ]);
         if ($validator->fails()) {
@@ -693,13 +711,29 @@ class AdminController extends Controller
             $imageUrl = $previousData->imageUrl;
         }
 
-        $addNewOffer = Banners::where('id', $request->id)->update([
-            'imageUrl' => $imageUrl,
-            'scheduledto' => $request->scheduledto,
-            'scheduledfrom' => $request->scheduledfrom,
-            'status' => $request->status,
-        ]);
-
+        $banner = Banners::where('id', $request->id)->first();
+        $banner->imageUrl = $imageUrl;
+        $banner->category = $request->category;
+        $banner->status = $request->status;
+        if ($request->category == 1) {
+            $banner->title = $request->title;
+        } else if ($request->category == 2) {
+            $banner->title = $request->title;
+        } else if ($request->category == 3) {
+            $banner->title = $request->title;
+            $banner->description = $request->description;
+        } else if ($request->category == 4) {
+            $banner->title = $request->title;
+            $banner->description = $request->description;
+            $banner->scheduledfrom = $request->scheduledfrom;
+            $banner->scheduledto = $request->scheduledto;
+        } else if ($request->category == 5) {
+            $banner->title = $request->title;
+        } else if ($request->category == 6) {
+            $banner->title = $request->title;
+            $banner->description = $request->descriptionforAboutUS;
+        }
+        $banner->save();
         return back()->with('message', 'Bannner updated successfully');
 
     }

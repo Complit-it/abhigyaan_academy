@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('m_c_qs', function (Blueprint $table) {
             $table->id();
+            $table->string('batch_id');
+            $table->string('title');
             $table->string('subject_id');
             $table->string('topic_id');
             $table->string('sub_topic_id');

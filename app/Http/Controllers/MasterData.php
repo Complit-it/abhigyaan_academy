@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banners;
+use App\Models\BlogsModel;
+use App\Models\Newsletters;
 use App\Models\PackageData;
+use App\Models\PackageDetails;
+use App\Models\StudentBatch;
 use App\Models\Subjects;
 use App\Models\SubSubTopics;
 use App\Models\SubTopics;
 use App\Models\Topics;
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Validator;
 
@@ -162,7 +169,7 @@ class MasterData extends Controller
             $addCity = Topics::where('id', $request->id)->update([
                 'subject_id' => $request->subject_id,
                 'name' => $request->name,
-                'image' => $imagePath,
+                'icon_url' => $imagePath,
             ]);
 
         } else {
@@ -695,6 +702,244 @@ class MasterData extends Controller
         AdminController::updateAuditTrail('Updated Sub Topic ' . json_encode($addCity));
 
         return redirect('sub-sub-topics')->with('message', 'Sub Topic updated successfully');
+    }
+
+    public function index()
+    {
+        $top3blogs = $allBlogs = BlogsModel::join('banners', 'banners.id', 'blogs_models.category')
+            ->where('banners.category', '5')->where('blogs_models.status', '2')->orderBy('id', 'desc')->take(3)->get([
+            'blogs_models.*', 'banners.title as category_name',
+        ]);
+
+        $studentsSay = Banners::where('category', '3')->where('status', '1')->orderBy('id', 'desc')->take(10)->get();
+        $last3packages = PackageDetails::where('package_status', '1')->orderBy('id', 'desc')->take(3)->get();
+
+        $popularExams = Banners::where('category', '2')->where('status', '1')->orderBy('id', 'desc')->take(10)->get();
+        $banners = Banners::where('category', '1')->where('status', '1')->orderBy('id', 'desc')->take(5)->get();
+
+        $about = Banners::where('category', '6')->where('status', '1')->orderBy('id', 'desc')->first();
+
+        // echo $banners;
+        // die;
+
+        // if the user is logged in
+        if (Auth::check()) {
+            $user = Auth::user();
+            return view('welcome', [
+                'title' => 'AdminPortal | Dashboard',
+                'top3blogs' => $top3blogs,
+                'studentsSay' => $studentsSay,
+                'last3packages' => $last3packages,
+                'popularExams' => $popularExams,
+                'bannersList' => $banners,
+                'about' => $about,
+                'user' => $user,
+            ]);
+        } else {
+            return view('welcome', [
+                'title' => 'AdminPortal | Dashboard',
+                'top3blogs' => $top3blogs,
+                'studentsSay' => $studentsSay,
+                'last3packages' => $last3packages,
+                'popularExams' => $popularExams,
+                'bannersList' => $banners,
+                'about' => $about,
+
+            ]);
+        }
+
+    }
+
+    public function newsletters(Request $request)
+    {
+        $email = $request->email;
+        $addtoNewsLetter = new Newsletters();
+        $addtoNewsLetter->email = $email;
+        $addtoNewsLetter->status = '1';
+        $addtoNewsLetter->save();
+        return redirect('/')->with('message', 'You are now subscribed to our newslettersƒa');
+    }
+
+    public function contact(Request $request)
+    {
+        $top3blogs = $allBlogs = BlogsModel::join('banners', 'banners.id', 'blogs_models.category')
+            ->where('banners.category', '5')->where('blogs_models.status', '2')->orderBy('id', 'desc')->take(3)->get([
+            'blogs_models.*', 'banners.title as category_name',
+        ]);
+        return view('contact', [
+            'title' => 'AdminPortal | Dashboard',
+            'top3blogs' => $top3blogs,
+        ]);
+
+    }
+
+    public function contactForm(Request $request)
+    {
+        $contact = new Banners();
+        $contact->category = 'contact';
+        $contact->email = $request->email;
+        $contact->from = $request->name;
+        $contact->phone = $request->phone;
+        $contact->title = $request->subject;
+        $contact->description = $request->message;
+        $contact->status = '1';
+        $contact->save();
+        return redirect('contact')->with('message', 'Response submitted successfully. Someone of us will be contacted you soon.');
+    }
+
+    public function blogs()
+    {
+        $allBlogs = BlogsModel::join('banners', 'banners.id', 'blogs_models.category')
+            ->where('banners.category', '5')->where('blogs_models.status', '2')->orderBy('id', 'desc')->take(100000)->get([
+            'blogs_models.*', 'banners.title as category_name',
+        ]);
+
+        $top3blogs = BlogsModel::join('banners', 'banners.id', 'blogs_models.category')
+            ->where('banners.category', '5')->where('blogs_models.status', '2')->orderBy('id', 'desc')->take(3)->get([
+            'blogs_models.*', 'banners.title as category_name',
+        ]);
+        return view('blogs', [
+            'title' => 'AdminPortal | Dashboard',
+            'top3blogs' => $top3blogs,
+        ]);
+    }
+
+    public function bloginDetail(Request $request)
+    {
+        $top3blogs = $allBlogs = BlogsModel::join('banners', 'banners.id', 'blogs_models.category')
+            ->where('banners.category', '5')->where('blogs_models.status', '2')->orderBy('id', 'desc')->take(3)->get([
+            'blogs_models.*', 'banners.title as category_name',
+        ]);
+
+        $slug = $request->slug;
+        $geBlog = BlogsModel::where('slug', '=', $slug)->where('status', '2')->first();
+
+        if ($geBlog == null) {
+            return redirect('/')->with('message', 'The blog you are trying to view is not available');
+        }
+        return view('blogdetail', [
+            'title' => 'AdminPortal | Dashboard',
+            'blogDetail' => $geBlog,
+            'top3blogs' => $top3blogs,
+        ]);
+    }
+
+    public function courses()
+    {
+        $top3blogs = $allBlogs = BlogsModel::join('banners', 'banners.id', 'blogs_models.category')
+            ->where('banners.category', '5')->where('blogs_models.status', '2')->orderBy('id', 'desc')->take(3)->get([
+            'blogs_models.*', 'banners.title as category_name',
+        ]);
+        $allPackages = PackageDetails::where('package_status', '1')->orderBy('id', 'desc')->get();
+
+        return view('courses', [
+            'title' => 'AdminPortal | Dashboard',
+            'top3blogs' => $top3blogs,
+            'allPackages' => $allPackages,
+        ]);
+
+    }
+
+    public function courseDetail($code)
+    {
+        $top3blogs = $allBlogs = BlogsModel::join('banners', 'banners.id', 'blogs_models.category')
+            ->where('banners.category', '5')->where('blogs_models.status', '2')->orderBy('id', 'desc')->take(3)->get([
+            'blogs_models.*', 'banners.title as category_name',
+        ]);
+
+        // echo $userId = Auth::user()->id;
+        // die;
+
+        $package = PackageDetails::where('package_code', $code)->where('package_status', '1')->orderBy('id', 'desc')->get();
+        $distinctSubjectNames = PackageData::where('package_code', $code)
+            ->join('subjects', 'package_data.subject_id', '=', 'subjects.id')
+            ->distinct()
+            ->pluck('subjects.name');
+
+        // echo $distinctSubjectNames;die;
+
+        if (count($package) == 0) {
+            return back()->with('message', 'Could not find the desired package.');
+        }
+        // if user is enrolled for the package
+        // check enrollment
+        if (Auth::check()) {
+            $userId = Auth::user()->id;
+            $packageId = PackageDetails::where('package_code', $code)->first()->id;
+
+            $checkEnrolledpackage = StudentBatch::
+                join('student_batch_to_courses', 'student_batch_to_courses.batchId', 'student_batches.batchId')
+                ->join('student_batch_to_students', 'student_batch_to_students.batchId', 'student_batches.batchId')
+                ->where('student_batch_to_courses.packageId', $packageId)->where('student_batch_to_students.studentId', $userId)->get();
+
+            // echo $packageId;
+            // die;
+
+        } else {
+            $checkEnrolledpackage = [];
+            $packageId = PackageDetails::where('package_code', $code)->first()->id;
+
+        }
+        if (count($checkEnrolledpackage) > 0) {
+            $pdf = PackageData::
+                join('readable_documents', 'readable_documents.id', 'package_data.data_id')
+                ->join('subjects', 'subjects.id', 'readable_documents.subject_id')
+                ->where('package_id', $packageId)->where('readable_documents.status', 1)
+                ->where('package_data.data_type', 'pdf')
+                ->orderBy('subject_name', 'ASC')->orderBy('subject_name', 'ASC')->get([
+                'subjects.name as subject_name', 'readable_documents.title', 'readable_documents.file_url as file_url',
+            ]);
+
+            $videos = PackageData::
+                join('videos', 'videos.id', 'package_data.data_id')
+                ->join('subjects', 'subjects.id', 'videos.subject_id')
+                ->where('package_id', $packageId)->where('videos.status', 1)
+                ->where('package_data.data_type', 'video')
+                ->orderBy('subject_name', 'ASC')->get([
+                'subjects.name as subject_name', 'videos.title', 'videos.video_url as file_url',
+            ]);
+
+        } else {
+            $pdf = PackageData::
+                join('readable_documents', 'readable_documents.id', 'package_data.data_id')
+                ->join('subjects', 'subjects.id', 'readable_documents.subject_id')
+                ->where('package_id', $packageId)->where('readable_documents.status', 1)->
+                where('package_data.data_type', 'pdf')->orderBy('subject_name', 'ASC')->get([
+                'subjects.name as subject_name', 'readable_documents.title', DB::raw('NULL as file_url'),
+            ]);
+
+            $videos = PackageData::
+                join('videos', 'videos.id', 'package_data.data_id')
+                ->join('subjects', 'subjects.id', 'videos.subject_id')
+                ->where('package_id', $packageId)->where('videos.status', 1)->where('package_data.data_type', 'video')
+                ->orderBy('subject_name', 'ASC')->get([
+                'subjects.name as subject_name', 'videos.title', DB::raw('NULL as file_url'),
+            ]);
+
+        }
+
+        return view('coursesDetail', [
+            'title' => 'AdminPortal | Dashboard',
+            'top3blogs' => $top3blogs,
+            'pdf' => $pdf,
+            'video' => $videos,
+            'package' => $package[0],
+            'subjects' => $distinctSubjectNames,
+        ]);
+    }
+
+    // aboutus
+    public function aboutus()
+    {
+        $top3blogs = $allBlogs = BlogsModel::join('banners', 'banners.id', 'blogs_models.category')
+            ->where('banners.category', '5')->where('blogs_models.status', '2')->orderBy('id', 'desc')->take(3)->get([
+            'blogs_models.*', 'banners.title as category_name',
+        ]);
+
+        return view('about-us', [
+            'title' => 'AdminPortal | Dashboard',
+            'top3blogs' => $top3blogs,
+        ]);
     }
 
 }

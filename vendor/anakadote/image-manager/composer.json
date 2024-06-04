@@ -1,0 +1,25 @@
+{
+    "name": "anakadote/image-manager",
+    "description": "Image resizing and cropping package for Laravel.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Taylor Collins",
+            "email": "hello@endif.io"
+        }
+    ],
+    "keywords": [
+        "laravel", "image manipulation"
+    ],
+    "require": {
+        "php": "^7.0 || ^8.0",
+        "illuminate/support": ">=5.0",
+        "enshrined/svg-sanitize": "^0.15.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "Anakadote\\ImageManager\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

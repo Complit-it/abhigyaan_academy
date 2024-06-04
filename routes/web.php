@@ -14,15 +14,37 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/admin/login', [AuthController::class, 'getLogin'])->name('login');
 Route::get('/admin/login', [AuthController::class, 'getLogin'])->name('login');
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('/admin/login', [AuthController::class, 'loginpost'])->name('login');
 Route::post('/login', [AuthController::class, 'loginpost'])->name('login');
-Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', 'App\Http\Controllers\MasterData@index')->name('logout');
+
+// Route::get('/',
+//     return view('welcome');
+// })->name('/');
+Route::get('/', 'App\Http\Controllers\MasterData@index')->name('/');
+Route::get('/contact', 'App\Http\Controllers\MasterData@contact')->name('contact');
+Route::get('/about-us', 'App\Http\Controllers\MasterData@aboutus')->name('aboutus');
+Route::get('/blogs', 'App\Http\Controllers\MasterData@blogs')->name('blogs');
+
+Route::get('/courses', 'App\Http\Controllers\MasterData@courses')->name('courses');
+Route::get('/course-detail/{code}', 'App\Http\Controllers\MasterData@courseDetail')->name('course-detail');
+
+Route::get('/blog/{slug}', 'App\Http\Controllers\MasterData@bloginDetail')->name('blogs');
+
+Route::post('/newsletters', 'App\Http\Controllers\MasterData@newsletters')->name('newsletters');
+Route::post('/contact-form', 'App\Http\Controllers\MasterData@contactForm')->name('contact');
+
+// student-login
+Route::post('student-login', [AuthController::class, 'loginpost'])->name('student-login');
+Route::post('sign-up', [AuthController::class, 'studentSignup'])->name('sign-up');
+Route::get('sign-up', 'App\Http\Controllers\MasterData@index')->name('sign-up');
+
+// Route::get('/home', [HomePage::class, 'render'])->name('home');
+// Route::get('/contact', [ContactUs::class, 'render'])->name('contact');
 
 // Route::get('/owners.php', function () {
 //     return view('owners');
@@ -106,6 +128,74 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/edit-sub-sub-topic/{id}', 'App\Http\Controllers\MasterData@editSubSubTopic')->name('sub-sub-topics');
     Route::post('/edit-sub-sub-topic', 'App\Http\Controllers\MasterData@updateSubSubTopic')->name('sub-sub-topics');
     Route::get('/delete-sub-sub-topic/{id}', 'App\Http\Controllers\MasterData@deleteSubSubTopic')->name('sub-sub-topics');
+
+    //MCQs
+    Route::get('/mcqs', 'App\Http\Controllers\ResourcesData@mcqs')->name('mcqs');
+    Route::post('/mcqs', 'App\Http\Controllers\ResourcesData@addMcqPost')->name('mcqs');
+    Route::get('/edit-mcq-batch/{id}', 'App\Http\Controllers\ResourcesData@editMcq')->name('mcqs');
+    Route::post('/edit-mcq-batch', 'App\Http\Controllers\ResourcesData@updateMcq')->name('mcqs');
+    Route::get('/delete-mcq-batch/{id}', 'App\Http\Controllers\ResourcesData@deleteMcq')->name('mcqs');
+
+    Route::get('/videos', 'App\Http\Controllers\ResourcesData@videos')->name('videos');
+    Route::post('/videos', 'App\Http\Controllers\ResourcesData@addVideos')->name('videos');
+    Route::get('/edit-video/{id}', 'App\Http\Controllers\ResourcesData@editVideo')->name('videos');
+    Route::post('/edit-video', 'App\Http\Controllers\ResourcesData@updateVideo')->name('videos');
+    Route::get('/delete-video/{id}', 'App\Http\Controllers\ResourcesData@deleteVideo')->name('delete-videos');
+
+    //pdfs
+    Route::get('/pdf', 'App\Http\Controllers\ResourcesData@pdfs')->name('pdfs');
+    Route::post('/pdf', 'App\Http\Controllers\ResourcesData@addPdfs')->name('pdfs');
+    Route::get('/edit-pdf/{id}', 'App\Http\Controllers\ResourcesData@editPdf')->name('pdfs');
+    Route::post('/edit-pdf', 'App\Http\Controllers\ResourcesData@updatePdf')->name('pdfs');
+    Route::get('/delete-pdf/{id}', 'App\Http\Controllers\ResourcesData@deletePdf')->name('delete-pdfs');
+
+    //gallery
+    Route::get('/gallery', 'App\Http\Controllers\ResourcesData@gallery')->name('gallery');
+    Route::post('/gallery', 'App\Http\Controllers\ResourcesData@addGallery')->name('gallery');
+    Route::get('/edit-gallery/{id}', 'App\Http\Controllers\ResourcesData@editGallery')->name('gallery');
+    Route::post('/edit-gallery', 'App\Http\Controllers\ResourcesData@updateGallery')->name('gallery');
+    Route::get('/delete-gallery/{id}', 'App\Http\Controllers\ResourcesData@deleteGallery')->name('delete-gallery');
+
+    //packages
+
+    Route::get('/packages', 'App\Http\Controllers\ResourcesData@packages')->name('packages');
+    Route::post('/packages', 'App\Http\Controllers\ResourcesData@addPackagePost')->name('packages');
+    Route::get('/edit-package/{id}', 'App\Http\Controllers\ResourcesData@editPackage')->name('packages');
+    Route::post('/edit-packages', 'App\Http\Controllers\ResourcesData@updatePackage')->name('packages');
+    Route::get('/suspend-package/{id}', 'App\Http\Controllers\ResourcesData@deletePackage')->name('packages');
+
+    Route::get('/add-package-data/{id}', 'App\Http\Controllers\ResourcesData@addpackagedata')->name('add-package-data');
+    // add-package-data
+    Route::post('/add-package-data', 'App\Http\Controllers\ResourcesData@addpackagedataPost')->name('add-package-data');
+    Route::post('/delete-package-data', 'App\Http\Controllers\ResourcesData@deletePackageDta')->name('delete-package-data');
+    //
+
+    // view-students
+
+    Route::get('/view-students', 'App\Http\Controllers\ResourcesData@viewStudents')->name('view-students');
+
+    // add-blogs
+    Route::get('/add-blogs', 'App\Http\Controllers\Blogs@addBlogs')->name('add-blogs');
+    Route::post('/add-blogs', 'App\Http\Controllers\Blogs@addBlogsPost')->name('add-blogs');
+    Route::get('/edit-blog/{id}', 'App\Http\Controllers\Blogs@editBlogs')->name('edit-blog');
+    Route::post('/edit-blog', 'App\Http\Controllers\Blogs@updateBlogs')->name('edit-blog');
+    Route::post('/edit-blog', 'App\Http\Controllers\Blogs@updateBlogs')->name('edit-blog');
+
+    // batch
+    Route::get('/batch', 'App\Http\Controllers\ResourcesData@batch')->name('batch');
+    Route::post('/batch', 'App\Http\Controllers\ResourcesData@batchPost')->name('batch');
+    Route::get('/edit-batch/{id}', 'App\Http\Controllers\ResourcesData@editbatch')->name('edit-batch');
+    Route::post('/edit-batch', 'App\Http\Controllers\ResourcesData@editbatchPost')->name('edit-batch');
+
+
+    //view Batch Students
+    Route::get('/view-batch-students/{batchId}', 'App\Http\Controllers\ResourcesData@viewStidentsinBatch')->name('view-batch-students');
+    Route::get('/delete-batch-student/{studentId}/{batchId}', 'App\Http\Controllers\ResourcesData@deleteStidentsinBatch')->name('delete-batch-student');
+    
+
+    // contact-form-submission
+    Route::get('/contact-form-submission', 'App\Http\Controllers\ResourcesData@cfs')->name('vcontact-form-submission');
+
 
 //     Route::get('/viewVendors', 'App\Http\Controllers\Admin\ProfileControler@viewVendors')->name('viewVendors');
 //     Route::post('/editVendorPost', 'App\Http\Controllers\Admin\ProfileControler@editVendorPost')->name('editVendorPost');
