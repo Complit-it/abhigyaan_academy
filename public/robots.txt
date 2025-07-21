@@ -1,2 +1,18 @@
+# robots.txt for abhigyanacademy.com
+
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /scripts/
+
+# Allow all web crawlers access to the following directories
+Allow: /public/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Sitemap location
+#Sitemap: https://abhigyanacademy.com/sitemap.xml

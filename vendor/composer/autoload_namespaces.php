@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Anakadote\\ImageManager\\' => array($vendorDir . '/anakadote/image-manager/src'),
 );

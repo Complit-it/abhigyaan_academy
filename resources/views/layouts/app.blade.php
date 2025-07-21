@@ -10,7 +10,7 @@
 
     <title>{{ isset($title) ? $title : 'Dashboard' }} </title>
 
-    <link rel="shortcut icon" type="image/png" href="userAsset/images/fevicon.png" />
+    <link rel="shortcut icon" type="image/png" href="/userAsset/images/fevicon.png" />
 
 
 
@@ -69,7 +69,7 @@
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
 
-        <img class="animation__shake" src="userAsset/images/loader.gif" alt="Logo" height="70" width="60">
+        <img class="animation__shake" src="/userAsset/images/loader.gif" alt="Logo" height="70" width="60">
     </div>
 
     <!-- Navbar -->
@@ -107,6 +107,7 @@
 
         </ul>
     </nav>
+
     <!-- /.navbar -->
     <div class="wrapper">
         <!-- Content Wrapper. Contains page content -->

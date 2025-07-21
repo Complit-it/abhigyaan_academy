@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fd40de79.css",
+    "main.js": "/static/js/main.b86a6878.js",
+    "static/media/image404.png": "/static/media/image404.52f8156473e9a41b8652.png",
+    "static/media/image-removebg-preview.png": "/static/media/image-removebg-preview.b895e1502b3b979653e7.png",
+    "static/media/tricolor-patriot.png": "/static/media/tricolor-patriot.d065abe5a2b3397a7f37.png",
+    "static/media/abhigyan_academy_logo_small.webp": "/static/media/abhigyan_academy_logo_small.340bf19cab975afe7d6a.webp",
+    "static/media/close-wifi-512.webp": "/static/media/close-wifi-512.43f576f8622aca8658eb.webp",
+    "index.html": "/index.html",
+    "main.fd40de79.css.map": "/static/css/main.fd40de79.css.map",
+    "main.b86a6878.js.map": "/static/js/main.b86a6878.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fd40de79.css",
+    "static/js/main.b86a6878.js"
+  ]
+}

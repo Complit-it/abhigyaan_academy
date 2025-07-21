@@ -46,14 +46,42 @@ class CustomerApiController extends Controller
         if ($validator->fails()) {
             $messages = $validator->messages();
 
-            return response()->json([array(
-                'status' => 'error',
-                'message' => $messages,
-            )], 500);
+            if ($messages->has('phone_no')) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Invalid Phone number.',
+                ], $status = 200, );
+            } else {
+                return response()->json([array(
+                    'status' => 'error',
+                    'message' => $messages,
+                )], 200);
+            }
         }
         $numbers = array((int) $request->phone_no);
         $sender = urlencode('CMPLIT');
         $otp = rand(100000, 999999);
+
+        //check for User with the phone number
+        // $checkifUserPresent = User::where('phone', $request->phone_no)->first();
+        // if (!$checkifUserPresent) {
+        //     //Register the user
+        //     $newuser = new User();
+        //     $newuser->phone = $request->phone_no;
+        //     $newuser->password = Hash::make($otp);
+        //     $newuser->name = $request->phone_no;
+        //     $newuser->email = $request->phone_no . "@na.com";
+        //     $newuser->save();
+
+        //     // add ROle`
+
+        //     DB::table('role_user')->insert([
+        //         'role_id' => '4',
+        //         'user_id' => $newuser->id,
+        //         'user_type' => 'App\Models\User',
+        //     ]);
+        // }
+
         // insertOTP
         $otpVerification = OTPVerification::where('phone_no', $request->phone_no)->first();
 
@@ -93,19 +121,45 @@ class CustomerApiController extends Controller
                 ]);
             }
 
-            $message = 'Your OTP for logging into Roadpartner is ' . $otp . '. Please do not share your OTP with anyone.';
-            $numbers = implode(',', $numbers);
-            $apiKey = 'NjY1MjM3MzI0NDc4NDk0ZjMzNDE2MzU2NmI2ODZiNDU=';
-            // Prepare data for POST request
-            $data = array('apikey' => $apiKey, 'numbers' => $numbers, "sender" => $sender, "message" => $message);
 
-            // Send the POST request with cURL
-            $ch = curl_init('https://api.textlocal.in/send/');
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            $numbers = implode(',', $numbers);
+
+            $url    = "https://www.fast2sms.com/dev/bulkV2";
+            $params = [
+                'authorization'    => '9W75HxtufLezKXlF6PmM8STNnD4GrUigVpRQqwyA1Y2cJkEasOZ4Xey3d2gobDPc501i8YzMAtCBrhnS',
+                'route'            => 'dlt',
+                'sender_id'        => 'CMPLIT',
+                'message'          => '186264', // Template ID
+                'variables_values' => "Abhigyan Academy|$otp",
+                'flash'            => '0',
+                'numbers'          => $numbers,
+                // Optional: 'schedule_time' => 'yyyy-MM-dd HH:mm:ss'
+            ];
+
+            // Build the full URL
+            $finalUrl = $url . '?' . http_build_query($params);
+
+            // Initialize cURL
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $finalUrl);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
             curl_close($ch);
+            
+           
+            // $message = 'Your OTP for logging into Abhigyan Academy is ' . $otp . '. Please do not share your OTP with anyone.';
+            // $numbers = implode(',', $numbers);
+            // $apiKey = 'NjY1MjM3MzI0NDc4NDk0ZjMzNDE2MzU2NmI2ODZiNDU=';
+            // // Prepare data for POST request
+            // $data = array('apikey' => $apiKey, 'numbers' => $numbers, "sender" => $sender, "message" => $message);
+
+            // // Send the POST request with cURL
+            // $ch = curl_init('https://api.textlocal.in/send/');
+            // curl_setopt($ch, CURLOPT_POST, true);
+            // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            // $response = curl_exec($ch);
+            // curl_close($ch);
         }
 
         return response()->json(['status' => 'success',
@@ -265,24 +319,31 @@ class CustomerApiController extends Controller
 
         if ($validator->fails()) {
             $messages = $validator->messages();
-            return response()->json([array(
-                'status' => 'error',
-                'message' => $messages,
-            )], 200);
+            if ($messages->has('phone_no')) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Invalid Phone number.',
+                ], $status = 200, );
+            } else {
+                return response()->json([array(
+                    'status' => 'error',
+                    'message' => $messages,
+                )], 200);
+            }
         }
 
         $user = User::where('phone', $request->phone_no)->first();
         if (!$user) {
             //create a user
             $user = User::create([
-                'name' => '',
-                'email' => $request->phone_no,
+                'name' => $request->phone_no,
+                'email' => $request->phone_no . '@na.com',
                 'phone' => $request->phone_no,
                 'photo_url' => '',
                 'phone_otp' => '',
                 'email_otp' => '',
                 'fcm_token' => $request->fcm_token,
-                'password' => Hash::make($request->phone_no),
+                'password' => Hash::make($request->otp),
 
             ]);
             $user->attachRole('customer');

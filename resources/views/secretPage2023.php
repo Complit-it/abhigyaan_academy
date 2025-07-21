@@ -55,7 +55,7 @@
                 <div class="container clearfix">
                     <!-- website logo -->
                     <div class="logo-header mostion">
-						<a href="index.html"><img src="img/logo-blue.png" alt="logo"></a>
+						<a href="/"><img src="img/logo-blue.png" alt="logo"></a>
 					</div>
                     <!-- nav toggle button -->
                     <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@
                     <!-- main nav -->
                     <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
 						<div class="logo-header d-md-block d-lg-none">
-							<a href="index.html"><img src="img/logo-black.png" alt=""></a>
+							<a href="/"><img src="img/logo-black.png" alt=""></a>
 						</div>
                         <ul class="nav navbar-nav">
 							<li class="active2"> <a href="javascript:;">Home</a>

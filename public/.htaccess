@@ -2,6 +2,26 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
+    
+
+
+   # Redirect all URLs containing /cdn-cgi/ to the root URL
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} ^/cdn-cgi/ [NC]
+    RewriteRule ^(.*)$ / [R=301,L]
+    
+    # Redirect specific Cloudflare email decode script to root
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} ^/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js$ [NC]
+    RewriteRule ^(.*)$ / [R=301,L]
+    
+        # Block access to Cloudflare email decode script
+    <Files "cloudflare-static/email-decode.min.js">
+        Order Allow,Deny
+        Deny from all
+    </Files>
+
+
 
     RewriteEngine On
 
@@ -18,4 +38,9 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+    
+    RewriteCond %{HTTP_HOST} ^www\.abhigyanacademy\.com [NC]
+    RewriteRule ^(.*)$ http://abhigyanacademy.com/$1 [L,R=301]
+
+
 </IfModule>
