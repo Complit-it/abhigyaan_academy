@@ -46,7 +46,7 @@ Route::post('/login', [AuthController::class, 'loginpost'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout', 'App\Http\Controllers\MasterData@index')->name('logout');
 
-// Route::get('/',
+// Route::get('/', function () {
 //     return view('welcome');
 // })->name('/');
 
